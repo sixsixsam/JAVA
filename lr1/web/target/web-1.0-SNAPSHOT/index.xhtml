@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:head>
+        <title>Index</title>
+    </h:head>
+
+    <h:body>
+        <h2>Лабораторная работа №1</h2>
+        <h:outputText value="Количество сессий: #{applicationBean.sessionsCount}"/>
+        <br/>
+        <c:choose>
+            <c:when test="#{login.currentUser() != null}">
+                <h:outputText value="Имя текущего пользователя: #{login.currentUser()}"/>
+                <h:form>
+                    <h:commandButton action="#{login.start}" value="Начать чат"/>
+                </h:form>
+            </c:when>
+            <c:otherwise>
+                <h:form>
+                    <p>Введите логин и пароль:</p>
+                    <c:if test="#{login.error != null}">
+                        <h:outputLabel value="#{login.error}"/>
+                        <br/>
+                    </c:if>
+                    <h:inputText value="#{login.login}" required="true"/>
+                    <br/>
+                    <h:inputText value="#{login.password}" required="true"/>
+                    <br/>
+                    <h:commandButton action="#{login.start}" value="Начать чат"/>
+                </h:form>
+            </c:otherwise>
+        </c:choose>
+
+    </h:body>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <title>Chat</title>
+</h:head>
+
+<h:body>
+    <h:outputText value="Количество сессий: #{applicationBean.sessionsCount}"/>
+    <br/>
+    <c:choose>
+        <c:when test="#{chat.started}">
+            <c:forEach items="#{chat.messages}" var="msg">
+                <h:outputText value="#{msg}"/>
+                <br/>
+            </c:forEach>
+            <h:form>
+                <h:inputText value="#{chat.message}"/>
+                <br/>
+                <h:commandButton value="Отправить" action="#{chat.send}"/>
+                <br/>
+                <h:commandButton value="Закончить чат" action="#{chat.stop}"/>
+            </h:form>
+        </c:when>
+        <c:otherwise>
+            <h:form>
+                <h:commandButton value="Начать чат" action="#{chat.start}"/>
+            </h:form>
+        </c:otherwise>
+    </c:choose>
+
+</h:body>
+
+</html>
