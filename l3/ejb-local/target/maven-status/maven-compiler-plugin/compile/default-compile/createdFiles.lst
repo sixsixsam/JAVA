@@ -1,0 +1,3 @@
+ru\rps\lr3\ejb\local\entity\Account.class
+ru\rps\lr3\ejb\local\component\AccountDAOLocal.class
+ru\rps\lr3\ejb\local\component\AccountDAOLocalImpl.class
