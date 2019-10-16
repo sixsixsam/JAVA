@@ -1,0 +1,3 @@
+ru\rps\lr3\ejb\remote\entity\Person.class
+ru\rps\lr3\ejb\remote\component\PersonDAORemoteImpl.class
+ru\rps\lr3\ejb\remote\client\PersonDAORemote.class
